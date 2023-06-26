@@ -1,0 +1,33 @@
+.order_list {
+  .order_item {
+    padding: .2rem .2rem;
+    border: 1px solid #999;
+    border-bottom: none;
+    &:last-of-type {
+      border-bottom: 1px solid #999;
+    }
+    .order_info {
+      display: flex;
+      justify-content: space-between;
+      .order_id {
+        em {
+          color: #f00;
+        }
+      }
+      .total_amount {
+        color: #f00;
+        font-weight: bold;
+      }
+    }
+    .goods_list {
+      margin-top: .2rem;
+      background: #d9f;
+      .goods_item {
+        padding: .2rem;
+        display: flex;
+        justify-content: space-between;
+        font-size: .28rem;
+      }
+    }
+  }
+}

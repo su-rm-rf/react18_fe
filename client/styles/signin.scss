@@ -1,0 +1,27 @@
+.signin {
+  div {
+    height: .8rem;
+    line-height: .8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &.errmsg {
+      color: #f00;
+      font-size: .28rem;
+    }
+    input {
+      line-height: .4rem;
+    }
+    &.button {
+      margin: .4rem;
+      justify-content: center;
+      button {
+        width: 80%;
+        line-height: .6rem;
+        background: #30a;
+        border: none;
+        color: #fff;
+      }
+    }
+  }
+}

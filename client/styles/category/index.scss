@@ -1,0 +1,66 @@
+.category_list {
+  li {
+    margin: .2rem 0;
+    div {
+      font-weight: bold;
+      line-height: .6rem;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      a {
+        width: calc(25% - 2px);
+        text-align: center;
+        line-height: .6rem;
+        font-size: .28rem;
+        background: #ae9;
+        border: 1px solid #fff;
+        &:hover {
+          color: #f00;
+        }
+      }
+    }
+  }
+}
+
+.category_detail {
+  line-height: .6rem;
+  .category_info {
+
+  }
+  .category_num {
+    text-align: right;
+    margin: .4rem 0;
+    button {
+      &:first-of-type {
+        color: #f00;
+      }
+      &:last-of-type {
+        color: #00f;
+      }
+    }
+    input {
+      width: .6rem;
+      margin: 0 .2rem;
+      text-align: center;
+      border: none;
+    }
+  }
+  .category_btn_list {
+    display: flex;
+    justify-content: space-around;
+    button {
+      width: 45%;
+      line-height: .6rem;
+      font-weight: bold;
+      &:first-of-type {
+        color: #f00;
+      }
+      &:last-of-type {
+        color: #00f;
+      }
+    }
+  }
+}
+
+@import './goods.scss';

@@ -1,0 +1,70 @@
+@import './reset.scss';
+@import './variables.scss';
+
+body {
+  font-size: .32rem;
+}
+.main_body {
+  height: calc(100vh - 1.02rem);
+  overflow: hidden;
+}
+.nav_footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  width: 100vw;
+  line-height: var(--footer-height, $footer-height);
+  text-align: center;
+  border-top: .02rem solid #999;
+  background: #fff;
+  z-index: 299;
+  a {
+    flex: 1;
+    color: #000;
+    &.active {
+      color: #f00;
+    }
+  }
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,.5);
+  z-index: 599;
+  display: none;
+  &.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.page_header {
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  background: #33f;
+  color: #fff;
+  position: relative;
+  i.back {
+    position: absolute;
+    left: .2rem;
+    font-size: .4rem;
+    cursor: pointer;
+  }
+}
+.layout {
+  padding: .2rem .3rem;
+  height: calc(100vh - 2.42rem);
+  overflow-y: auto;
+}
+
+@import './signin.scss';
+@import './home/index.scss';
+@import './category/index.scss';
+@import './cart/index.scss';
+@import './mine/index.scss';
