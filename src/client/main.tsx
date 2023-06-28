@@ -7,8 +7,8 @@ import '@/utils/vconsole'
 import App from '@/App'
 import { store } from '@/store'
 
-console.log(process.env.NODE_ENV)
-console.log(process.env.BASE_ENV)
+console.log('client', process.env.NODE_ENV)
+console.log('client', process.env.BASE_ENV)
 
 hydrateRoot(
   document.querySelector('#root') as Element,

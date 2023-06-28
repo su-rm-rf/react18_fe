@@ -6,8 +6,8 @@ import { Provider } from 'react-redux'
 import App from '@/App'
 import { store } from '@/store'
 
-console.log(process.env.NODE_ENV)
-console.log(process.env.BASE_ENV)
+console.log('ssr', process.env.NODE_ENV)
+console.log('ssr', process.env.BASE_ENV)
 
 const JS_URL = process.env.BASE_ENV === 'development' ? '/client.bundle.js' : '/client.prod.bundle.js'
 
@@ -19,7 +19,7 @@ export default (req, res) => {
       </StaticRouter>
     </Provider>
   , {
-    bootstrapScripts: ['/wap_pc' + JS_URL],
+    bootstrapScripts: [JS_URL],
     onShellReady() {
       res.statusCode = 200
       res.setHeader('Content-Type', 'text/html; charset=utf-8')
@@ -35,7 +35,7 @@ export default (req, res) => {
             domEl.style.fontSize = domElWidth / 7.5 + 'px'
           </script>
           <link rel="shortcut icon" type="images/x-icon" href="/react.ico" />
-          <link rel="stylesheet" href="/wap_pc/main.css" />
+          <link rel="stylesheet" href="/main.css?${Math.random()}" />
         </head>
         <body>
         <div id="root">`)
