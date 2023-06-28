@@ -6,7 +6,11 @@ import PageHeader from '@/components/common/PageHeader'
 export default () => {
 
   const navigate = useNavigate()
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState({
+    username: '',
+    password: '',
+    level: '',
+  })
   const roles = { 0: '超级管理员', 1: '管理员', 2: '用户' }
   
   useEffect(() => {
@@ -40,7 +44,7 @@ export default () => {
 
         <ul className="nav_list">
           <li>
-            <Link to="/mine/order">订单<i>></i></Link>
+            <Link to="/mine/order">订单<i>`&gt;`</i></Link>
           </li>
         </ul>
         <ul className="nav_list footer">

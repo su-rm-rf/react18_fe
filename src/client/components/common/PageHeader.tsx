@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useNavigate } from 'react-router'
 
-export default ({ back, title }) => {
+export default (props) => {
   const navigate = useNavigate()
 
   const goBack = () => {
@@ -12,9 +12,9 @@ export default ({ back, title }) => {
   return (
     <div className="page_header">
       {
-        back && <i className="back" onClick={ goBack }>{ '<' }</i>
+        props.back && <i className="back" onClick={ goBack }>{ '<' }</i>
       }
-      <h4>{ title }</h4>
+      <h4>{ props.title }</h4>
     </div>
   )
 }
