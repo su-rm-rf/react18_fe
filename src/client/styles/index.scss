@@ -16,7 +16,7 @@ body {
   width: 100vw;
   line-height: var(--footer-height, $footer-height);
   text-align: center;
-  border-top: .02rem solid #999;
+  border-top: .02rem solid #ddd;
   background: #fff;
   z-index: 299;
   a {
@@ -58,6 +58,7 @@ body {
   }
 }
 .layout {
+  background: #eee;
   padding: .2rem .3rem;
   height: calc(100vh - 2.42rem);
   overflow-y: auto;

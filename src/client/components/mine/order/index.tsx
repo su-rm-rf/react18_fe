@@ -23,21 +23,43 @@ export default () => {
         {
           orderList.map(order =>
             <li key={ order.id } className="order_item">
-              <div className="order_info">
-                <span className="order_id">订单号：<em>{ order.id }</em></span>
-                <span className="total_amount">{ order.totalAmount }{ order.bill }</span>
-              </div>
               <ul className="goods_list">
                 {
                   order.goods && order.goods.map(goods =>
                     <li key={ goods.id } className="goods_item">
-                      <span>{ goods.name }</span>
-                      <span>{ goods.price } { goods.bill } / { goods.unit } x { goods.num } { goods.unit }</span>
-                      <span>{ goods.amount } { goods.bill }</span>
+                      <span className="goods_info">{ goods.name }</span>
+                      <div className="goods_price_num">
+                        <span>{ goods.price } { goods.bill } / { goods.unit }</span>
+                        <span>x { goods.num } { goods.unit }</span>
+                      </div>
                     </li>
                   )
                 }
               </ul>
+              <div className="goods_sumary">
+                <div>
+                  <label>总价：</label>
+                  <span>{ order.totalAmount }{ order.bill }</span>
+                </div>
+                <div className="real_pay">
+                  <label>实付：</label>
+                  <em>{ order.totalAmount }{ order.bill }</em>
+                </div>
+              </div>
+              <div className="order_info">
+                <div>
+                  <label>订单号：</label>
+                  <span>{ order.id }</span>
+                </div>
+                <div>
+                  <label>创建时间：</label>
+                  <span>{ order.created_at }</span>
+                </div>
+                <div>
+                  <label>支付时间：</label>
+                  <span>{ order.updated_at }</span>
+                </div>
+              </div>
             </li>
           )
         }

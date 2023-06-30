@@ -56,7 +56,7 @@ export default () => {
           </li>
           <li>
             <label>价格：</label>
-            <span>{ detail.price }元</span>
+            <span>{ detail.price } { detail.bill } / { detail.unit }</span>
           </li>
           <li>
             <label>所属品类：</label>

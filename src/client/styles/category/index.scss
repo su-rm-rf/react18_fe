@@ -9,12 +9,12 @@
       display: flex;
       flex-wrap: wrap;
       a {
-        width: calc(25% - 2px);
+        width: calc(25% - 4px);
         text-align: center;
-        line-height: .6rem;
+        line-height: .8rem;
         font-size: .28rem;
         background: #ae9;
-        border: 1px solid #fff;
+        border: 2px solid #fff;
         &:hover {
           color: #f00;
         }
@@ -53,6 +53,7 @@
       width: 45%;
       line-height: .6rem;
       font-weight: bold;
+      font-size: .36rem;
       &:first-of-type {
         color: #f00;
       }

@@ -44,7 +44,7 @@ export default () => {
 
         <ul className="nav_list">
           <li>
-            <Link to="/mine/order">订单<i>`&gt;`</i></Link>
+            <Link to="/mine/order">订单<i>&gt;</i></Link>
           </li>
         </ul>
         <ul className="nav_list footer">

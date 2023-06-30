@@ -4,7 +4,7 @@ import { Outlet, useRoutes, useLocation, useNavigate } from "react-router-dom"
 
 const Home = lazy(() => import('@/components/home' /* webpackPrefetch: true */))
 const Category = lazy(() => import('@/components/category' /* webpackPrefetch: true */))
-const Detail = lazy(() => import('@/components/category/detail' /* webpackPrefetch: true */))
+const Detail = lazy(() => import('@/components/category/Detail' /* webpackPrefetch: true */))
 const Cart = lazy(() => import('@/components/cart' /* webpackPrefetch: true */))
 const Mine = lazy(() => import('@/components/mine' /* webpackPrefetch: true */))
 const OrderList = lazy(() => import('@/components/mine/order' /* webpackPrefetch: true */))
