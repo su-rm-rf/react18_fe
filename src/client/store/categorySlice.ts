@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { instance1 } from '../utils/axios'
 
-export const getCategoryList = createAsyncThunk('categoryList', async(xx, { rejectWithValue }) => {
+export const getCategoryList = createAsyncThunk('categoryList', async() => {
   const res = await instance1.get('/category/list')
   return res.data
 })
