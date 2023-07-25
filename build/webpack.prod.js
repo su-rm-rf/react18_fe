@@ -1,3 +1,4 @@
+const { resolve } = require('path')
 const webpackNodeExternals = require('webpack-node-externals')
 const TerserPlugin = require('terser-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')

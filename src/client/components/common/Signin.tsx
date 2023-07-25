@@ -14,8 +14,8 @@ export default () => {
   const location = useLocation()
   const navigate = useNavigate()
 
-  let [username, setUsername] = useState('')
-  let [password, setPassword] = useState('')
+  let [username, setUsername] = useState('yuhualing')
+  let [password, setPassword] = useState('abc123')
   let [errmsg, setErrmsg] = useState('')
 
   const updateUserName = (ev) => {
@@ -32,11 +32,7 @@ export default () => {
         username,
         password,
       }))
-      let token = res.payload.data
-      if (token) {
-        token = JSON.stringify(token)
-        localStorage.token = token
-        document.cookie = 'token=' + token
+      if (res.payload?.data?.token) {
         navigate(-1)
       } else {
         setErrmsg('用户名或密码错误')

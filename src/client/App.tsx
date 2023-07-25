@@ -9,7 +9,7 @@ import routes from './routers'
 import FooterNav from '@/components/common/FooterNav'
 import Loading from '@/components/common/Loading'
 
-import { RouterBeforeEach } from '@/routers'
+// import { RouterBeforeEach } from '@/routers'
 
 export default () => {
   const loading = useSelector((state:any) => state.global.loading)
@@ -32,7 +32,7 @@ export default () => {
         </Routes> */}
       </div>
       <FooterNav />
-      <RouterBeforeEach />
+      {/* <RouterBeforeEach /> */}
     </div>
   )
 }

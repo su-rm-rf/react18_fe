@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 import Mine from '../mine'
 
-import RouterGuard from '@/hooks/RouterGuard'
+// import RouterGuard from '@/hooks/RouterGuard'
 
 import { RouterBeforeEach } from '@/routers'
 

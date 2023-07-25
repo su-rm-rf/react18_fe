@@ -1,8 +1,7 @@
 import React, { useCallback, useEffect } from 'react'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams } from 'react-router'
-import { useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 import { getCategoryDetail, categoryNum } from '@/store/categorySlice'
 import { addOrder } from '@/store/orderSlice'
@@ -30,14 +29,19 @@ export default () => {
 
   }
   const order = async () => {
-    const res = await dispatch(addOrder({
-      goods_id: detail.id,
-      num,
-    }))
-    if (!res.payload.data) {
+    const token = localStorage.getItem('token')
+    if (!token) {
       navigate('/signin')
     } else {
-      navigate('/mine', { replace: true })
+      const res = await dispatch(addOrder({
+        goods_id: detail.id,
+        num,
+      }))
+      if (!res.payload.data) {
+        navigate('/signin')
+      } else {
+        navigate('/mine', { replace: true })
+      }
     }
   }
   

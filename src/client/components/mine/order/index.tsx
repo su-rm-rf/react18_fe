@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 
+import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { getOrderList, showLoading } from '@/store/orderSlice'
@@ -9,11 +10,18 @@ import PageHeader from '@/components/common/PageHeader'
 export default () => {
   const orderList = useSelector((state:any) => state.order.list)
   const loading = useSelector((state:any) => state.order.loading)
+
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   useEffect(() => {
     dispatch(showLoading())
-    dispatch(getOrderList())
+    ;(async () => {
+      const res = await dispatch(getOrderList())
+      if (res.payload.errCode === 10031) {
+        navigate('/signin', { replace: true })
+      }
+    })()
   }, [])
 
   return (

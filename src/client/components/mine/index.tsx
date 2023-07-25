@@ -1,29 +1,35 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
+import { useSelector, useDispatch } from 'react-redux'
+
+import { getUserInfo, postSignout } from '../../store/globalSlice'
 import PageHeader from '@/components/common/PageHeader'
 
 export default () => {
 
   const navigate = useNavigate()
-  const [user, setUser] = useState({
-    username: '',
-    password: '',
-    level: '',
-  })
+  const userInfo = useSelector((state: any) => state.global.userInfo)
+  const dispatch = useDispatch()
+
   const roles = { 0: '超级管理员', 1: '管理员', 2: '用户' }
   
   useEffect(() => {
-    if (!localStorage.token) {
+    const token = localStorage.token
+    if (!token) {
       navigate('/signin')
     } else {
-      setUser(JSON.parse(localStorage.token))
+      ;(async () => {
+        const res = await dispatch(getUserInfo(token))
+        if (res.payload.errCode === 10031) {
+          navigate('/signin')
+        }
+      })()
     }
   }, [])
 
-  const signout = () => {
-    localStorage.token = ''
-    document.cookie = 'token='
+  const signout = async() => {
+    await dispatch(postSignout())
     navigate('/signin')
   }
 
@@ -34,11 +40,11 @@ export default () => {
         <ul className="user_info">
           <li>
             <label>用户名：</label>
-            <span>{ user.username }</span>
+            <span>{ userInfo.username }</span>
           </li>
           <li>
             <label>等级：</label>
-            <span>{ roles[user.level] }</span>
+            <span>{ roles[userInfo.level] }</span>
           </li>
         </ul>
 

@@ -60,20 +60,20 @@ export default class List extends Component<{}, {
   render(): ReactNode {
     console.log('render 1')
     return (
-      <div style={{color: '#00f', 'margin': '1rem 0'}}>
-        <button onClick={ this.setList.bind(this) }>更新我自己</button>
-        <div>展示我自己：
+      <div style={{color: '#00f', 'margin': '.5rem 0'}}>
+        <button onClick={ this.setList.bind(this) }>更新父组件</button>
+        <div>展示父组件：
           { 
             this.state.list.map(item => 
               <div key={item}>{item}</div>
             ) 
           }
         </div>
-        <button onClick={ this.setListToChild.bind(this) }>更新并传给儿子</button>
-        <div>显式儿子的内容：
+        <button onClick={ this.setListToChild.bind(this) }>更新并传给子组件</button>
+        <div>显式子组件的内容：
           <Item listToChild={ this.state.listToChild } cbToParent={ this.getFromChild.bind(this) } />
         </div>
-        <div>显式儿子的回调内容：{ this.state.cbData }</div>
+        <div>显式子组件的回调内容：{ this.state.cbData }</div>
       </div>
     )
   }
@@ -108,7 +108,7 @@ class Item extends Component<{
     })
   }
   cbToParent() {
-    this.props.cbToParent('传给老子的回调信息')
+    this.props.cbToParent('传给父组件的回调信息')
   }
   componentDidCatch(error, info) {
     console.log(error, info)
@@ -150,17 +150,17 @@ class Item extends Component<{
   render(): ReactNode {
     console.log('render 2', this.props)
     return (
-      <div style={{color: '#f00', 'margin': '1rem 0'}}>
-        <button onClick={ this.setNum.bind(this) }>更新我自己</button>
-        <div>展示我自己：{ this.state.num }</div>
-        <div>from 老子：
+      <div style={{color: '#f00', 'margin': '.5rem 0'}}>
+        <button onClick={ this.setNum.bind(this) }>更新子组件</button>
+        <div>展示子组件：{ this.state.num }</div>
+        <div>from 父组件：
           { 
             this.props.listToChild.map(item => 
               <div key={item}>{item}</div>
             ) 
           }
         </div>
-        <button onClick={ this.cbToParent.bind(this) }>更新并传给老子</button>
+        <button onClick={ this.cbToParent.bind(this) }>更新并传给父组件</button>
       </div>
     )
   }

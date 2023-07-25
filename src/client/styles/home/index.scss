@@ -1,0 +1,18 @@
+.hooks_test {
+  .board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 3rem;
+    .square {
+      width: 1rem;
+      height: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #999;
+      box-sizing: border-box;
+      font-size: .36rem;
+      font-weight: bold;
+    }
+  }
+}

@@ -12,6 +12,7 @@ console.log('ssr', process.env.BASE_ENV)
 const JS_URL = process.env.BASE_ENV === 'development' ? '/client.bundle.js' : '/client.prod.bundle.js'
 
 export default (req, res) => {
+  const preloadedState = {}
   const { pipe } = renderToPipeableStream(
     <Provider store={ store }>
       <StaticRouter location={ req.url }>
@@ -23,6 +24,7 @@ export default (req, res) => {
     onShellReady() {
       res.statusCode = 200
       res.setHeader('Content-Type', 'text/html; charset=utf-8')
+      
       res.write(`<!DOCTYPE html>
         <html lang="en">
         <head>
@@ -39,8 +41,18 @@ export default (req, res) => {
         </head>
         <body>
         <div id="root">`)
+
       pipe(res)
+
       res.write(`</div>
+        <script>
+          // WARNING: See the following for security issues around embedding JSON in HTML:
+          // https://redux.js.org/usage/server-rendering#security-considerations
+          window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(
+            /</g,
+            '\\u003c'
+          )}
+        </script>
         </body>
         </html>`)
     },

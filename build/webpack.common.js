@@ -16,7 +16,17 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
+            presets: [
+              ['@babel/preset-env', {
+                useBuiltIns: 'entry',
+                corejs: 3
+              }], 
+              '@babel/preset-react', '@babel/preset-typescript'
+            ],
+            plugins: [
+              '@babel/plugin-transform-runtime'
+            ]
+            // cacheDirectory: resolve(__dirname, '../dist'),
           }
         }
       },
@@ -30,20 +40,7 @@ module.exports = {
             options: {
               postcssOptions: {
                 plugins: [
-                  ['postcss-preset-env', {
-                      browsers: [
-                        'defaults',
-                        'not ie < 9',
-                        'last 7 versions',
-                        '> 1%',
-                        'iOS >= 8',
-                        'last 5 iOS versions',
-                        'android >= 6.0',
-                        // 'not dead',
-                        // 'not op_mini all',
-                      ]
-                    }
-                  ]
+                  ['postcss-preset-env']
                 ]
               }
             }

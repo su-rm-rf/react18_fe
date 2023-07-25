@@ -1,6 +1,26 @@
 一个基于React18和Express的SSR服务端渲染项目
 
-# dependency
+# 项目结构
+build                 构建脚本
+env                   环境变量
+dist                  打包文件
+public                公共文件
+src
+  client            客户端
+    component         页面组件
+    hooks             自定义Hooks
+    routers           路由
+    store             状态管理
+    styles            CSS样式
+    utils             工具
+    App.tsx           根组件
+    main.tsx          入口文件
+  ssr               服务端渲染
+    main.tsx          入口文件
+    render.tsx        完成渲染工作
+test
+
+# 依赖项
 webpack:
   webpack webpack-cli webpack-merge webpack-node-externals copy-webpack-plugin
 babel:

@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from 'react'
 
 import PageHeader from '@/components/common/PageHeader'
 import Suggest from './Suggest'
+import HooksTest from './HooksTest'
 
 export default () => {
   const [sug, setSug] = useState('')
@@ -23,6 +24,7 @@ export default () => {
           <dd></dd>
         </dl>
         <Suggest sug={ sug } />
+        <HooksTest />
       </div>
     </>
   )

@@ -50,39 +50,39 @@ const routes:any = [
   },
 ]
 
-export const RouterBeforeEach = () => {
-  const location = useLocation()
-  const navigate = useNavigate()
-  const [auth, setAuth] = useState(false)
-  useEffect(() => {
-    const token = localStorage.token
-    const route = getRouteByPath(routes, location.pathname)
-    if (route.meta?.auth && !token) {
-      setAuth(true)
-      navigate('/signin', { replace: true })
-    } else {
-      setAuth(false)
-    }
-  })
-  // }, [location.pathname])
-  return auth ? <Outlet /> : null
-}
+// export const RouterBeforeEach = () => {
+//   const location = useLocation()
+//   const navigate = useNavigate()
+//   const [auth, setAuth] = useState(false)
+//   useEffect(() => {
+//     const token = localStorage.token
+//     const route = getRouteByPath(routes, location.pathname)
+//     if (route.meta?.auth && !token) {
+//       setAuth(true)
+//       navigate('/signin', { replace: true })
+//     } else {
+//       setAuth(false)
+//     }
+//   })
+//   // }, [location.pathname])
+//   return auth ? <Outlet /> : null
+// }
 
-const getRouteByPath = (routes, path) => {
-  for (const route of routes) {
-    if (route.path === path) return route
+// const getRouteByPath = (routes, path) => {
+//   for (const route of routes) {
+//     if (route.path === path) return route
 
-    const arr1 = route.path.match(/([^/]+)/g)
-    const arr2 = path.match(/([^/]+)/g)
-    const arrParams = route.path.match(/(:[\w]+)/g)
-    if (arr1?.length === arr2?.length && arrParams?.length) return route
+//     const arr1 = route.path.match(/([^/]+)/g)
+//     const arr2 = path.match(/([^/]+)/g)
+//     const arrParams = route.path.match(/(:[\w]+)/g)
+//     if (arr1?.length === arr2?.length && arrParams?.length) return route
     
-    if (route.children) {
-      const res = getRouteByPath(routes.children, path)
-      if (res) return res
-    }
-  }
-  return null
-}
+//     if (route.children) {
+//       const res = getRouteByPath(routes.children, path)
+//       if (res) return res
+//     }
+//   }
+//   return null
+// }
 
 export default routes

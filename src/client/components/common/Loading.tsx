@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default ({ show }) => {
+export default (props) => {
   return (
     <>
       {
-        (show === undefined || !!show) ? 
+        (props.show === undefined || !!props.show) ? 
         <div className="loading show">loading...</div> :
         <div className="loading">loading...</div>
       }
