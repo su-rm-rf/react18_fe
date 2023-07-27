@@ -13,7 +13,7 @@ module.exports = {
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-        use: {
+        use: ['thread-loader', {
           loader: 'babel-loader',
           options: {
             presets: [
@@ -28,7 +28,7 @@ module.exports = {
             ]
             // cacheDirectory: resolve(__dirname, '../dist'),
           }
-        }
+        }]
       },
       {
         test: /\.scss$/,

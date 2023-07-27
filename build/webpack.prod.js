@@ -26,7 +26,7 @@ const client = merge(common, {
       new CssMinimizerPlugin(),
     ],
     splitChunks: {
-      
+      chunks: 'all',
     }
   },
   target: 'web',
