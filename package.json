@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "build:dev": "cross-env NODE_ENV=development BASE_ENV=development webpack -c ./build/webpack.dev.js --watch",
-    "build:est": "cross-env NODE_ENV=test BASE_ENV=production webpack -c ./build/webpack.prod.js",
+    "build:test": "cross-env NODE_ENV=test BASE_ENV=production webpack -c ./build/webpack.prod.js",
     "build:prod": "cross-env NODE_ENV=production BASE_ENV=production webpack -c ./build/webpack.prod.js",
     "ssr:dev": "nodemon ./dist/ssr.bundle.js",
     "ssr:test": "nodemon ./dist/ssr.bundle.js",

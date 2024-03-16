@@ -1,5 +1,5 @@
 require('dotenv').config({
-  path: `env/.${ process.env.BASE_ENV }.env`
+  path: `.env.${ process.env.BASE_ENV }`
 })
 
 import express from 'express'

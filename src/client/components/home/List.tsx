@@ -60,7 +60,7 @@ export default class List extends Component<{}, {
   render(): ReactNode {
     console.log('render 1')
     return (
-      <div style={{color: '#00f', 'margin': '.5rem 0'}}>
+      <div>
         <button onClick={ this.setList.bind(this) }>更新父组件</button>
         <div>展示父组件：
           { 
@@ -150,7 +150,7 @@ class Item extends Component<{
   render(): ReactNode {
     console.log('render 2', this.props)
     return (
-      <div style={{color: '#f00', 'margin': '.5rem 0'}}>
+      <div>
         <button onClick={ this.setNum.bind(this) }>更新子组件</button>
         <div>展示子组件：{ this.state.num }</div>
         <div>from 父组件：
